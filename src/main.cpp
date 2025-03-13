@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #define LED 13
 
+int contador = 0;
+
 void setup() {
   pinMode(LED, OUTPUT);
   Serial.begin(9600);
@@ -11,5 +13,5 @@ void loop() {
   delay(100),
   digitalWrite(LED_BUILTIN, LOW);
   delay(1000);
-  Serial.print("Funciona.");
+  Serial.println(contador++);
 }
