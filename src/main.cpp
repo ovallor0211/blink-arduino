@@ -8,10 +8,15 @@ void setup() {
   Serial.begin(9600);
 }
 
+int antes = millis();
+int estado = 0;
+
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(100),
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(1000);
+  int ahora = millis();
+  if (ahora - antes > 1000) {
+    digitalWrite(LED, estado);
+    estado = !estado;
+    antes = ahora;
+  }
   Serial.println(contador++);
 }
